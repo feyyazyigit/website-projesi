@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehrim</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(204, 204, 204);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(file:///C:/Users/90532/OneDrive/Masa%C3%BCst%C3%BC/website/img/arkaplan.jpg);
+        }
+        .navbar {
+            background-color: #95c1c7;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.784);
+        }
+        .navbar {
+            border: 2px solid rgb(18, 53, 24);
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        a {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif sans-serif;
+            font-weight: lighter;
+            font-size: 25px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        #slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        #slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        #slider img.active {
+            opacity: 1;
+        }
+        #slider nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #slider nav button {
+            background-color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin: 0 10px;
+            padding: 0;
+            cursor: pointer;
+        }
+        #slider nav button.active {
+            background-color: #333;
+        }
+        #content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #content h2 {
+            font-size: 32px;
+            margin-top: 0;
+        }
+        #content p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 0 20px;
+        }
+        #content ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #content li {
+            margin-bottom: 10px;
+        }
+        #content a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="anasayfa.html">Anasayfa</a>
+            <a href="hakkimda.html">Hakkımda</a>
+            <a href="sehrim.html">Şehrim</a>
+            <a href="mirasimiz.html">Mirasımız</a>
+            <a href="iletişim.html">İletişim</a>
+            <a href="özgeçmiş.html">Özgeçmiş</a>
+            <a href="ilgialanlarım.html">İlgi Alanlarım</a>
+    </div>
+    <header>
+        <h1>Şehrim</h1>
+    </header>
+
+    <div id="slider">
+        <a href="ornek.html">
+            
+         <img src="C:\Users\90532\OneDrive\Masaüstü\website\img\IMG-20230517-WA0002.jpg" alt="Resim 1" class="active"> </a>
+        <img src="C:\Users\90532\OneDrive\Masaüstü\website\img\IMG-20230517-WA0003.jpg" alt="Resim 2">
+        <img src="resim3.jpg" alt="Resim 3">
+        <img src="C:\Users\90532\OneDrive\Masaüstü\website\img\IMG-20230517-WA0004.jpg" alt="Resim 4">
+        <nav>
+            <button class="active"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </nav>
+    </div>
+    <div id="content">        
+    
+    <h2>Şehir Adı</h2>
+        <p>Bu bölümde, şehrinize ait genel bilgileri yazabilirsiniz. Örneğin, nüfusu, tarihi ve kültürel özellikleri gibi.</p>
+        <h3>Gezilecek Yerler</h3>
+        <ul>
+            <li><a href="#">Gezilecek Yer 1</a></li>
+            <li><a href="#">Gezilecek Yer 2</a></li>
+            <li><a href="#">Gezilecek Yer 3</a></li>
+            <li><a href="#">Gezilecek Yer 4</a></li>
+            <li><a href="#">Gezilecek Yer 5</a></li>
+        </ul>
+    </div>
+    <script>
+        const slider = document.querySelector("#slider");
+        const images = slider.querySelectorAll("img");
+        const navButtons = slider.querySelectorAll("nav button");
+        let currentIndex = 0;
+        setInterval(() => {
+            images[currentIndex].classList.remove("active");
+            navButtons[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+            navButtons[currentIndex].classList.add("active");
+        }, 5000);
+        navButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                images[currentIndex].classList.remove("active");
+                navButtons[currentIndex].classList.remove("active");
+                currentIndex = index;
+                images[currentIndex].classList.add("active");
+                navButtons[currentIndex].classList.add("active");
+            });
+        });
+    </script>
+</body>
+</html>
