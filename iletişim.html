@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(204, 204, 204);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(file:///C:/Users/90532/OneDrive/Masa%C3%BCst%C3%BC/website/img/arkaplan.jpg);
+        }
+
+        .navbar {
+            background-color: #95c1c7;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.784);
+        }
+
+        
+
+        .caption {
+            text-align: center;
+            font-family: 'Times New Roman', sans-serif;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .navbar {
+            border: 2px solid rgb(18, 53, 24);
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        a {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif sans-serif;
+            font-weight: lighter;
+            font-size: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #45a049;
+            
+        }
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="navbar">
+            <a href="anasayfa.html">Anasayfa</a>
+            <a href="hakkimda.html">Hakkımda</a>
+            <a href="sehrim.html">Şehrim</a>
+            <a href="mirasimiz.html">Mirasımız</a>
+            <a href="iletişim.html">İletişim</a>
+             <a href="özgeçmiş.html">Özgeçmiş</a>
+            <a href="ilgialanlarım.html">İlgi Alanlarım</a>
+        </div>
+        
+        <h1>İletişim Formu</h1>
+        <form @submit.prevent="submitForm">
+            <form action="mailto:elcan.huseynzade@sakarya.edu.tr" method="POST" enctype="text/plain"></form>
+            <div>
+                <label for="name">Adınız:</label>
+                <input type="text" id="name" v-model="formData.name" required>
+            </div>
+            <div>
+                <label for="email">E-posta Adresiniz:</label>
+                <input type="email" id="email" v-model="formData.email" required>
+            </div>
+            <div>
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" v-model="formData.message" required></textarea>
+            </div>
+            <button type="submit">Formu Gönder</button>
+            <button @click="resetForm">Formu Sıfırla</button>
+        </form>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                formData: {
+                    name: '',
+                    email: '',
+                    message: ''
+                }
+            },
+            methods: {
+                submitForm() {
+                    
+                    console.log('Form gönderildi.');
+                    console.log('Ad: ' + this.formData.name);
+                    console.log('E-posta: ' + this.formData.email);
+                    console.log('Mesaj: ' + this.formData.message);
+                },
+                resetForm() {
+                    
+                    this.formData.name = '';
+                    this.formData.email = '';
+                    this.formData.message = '';
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
